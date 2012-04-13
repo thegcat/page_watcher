@@ -1,0 +1,16 @@
+= Page Watcher
+
+This program watches a webpage or portion of a webpage and will act on the
+result, for example send an e-mail with a diff or push linked files to another
+place.
+
+== Help
+
+You can get help for this plugin in the {GitHub
+project}[https://github.com/thegcat/page_watcher/issues].
+
+== License
+
+Copyright (c) 2012 - Felix Schäfer
+
+This software is licensed under the MIT license. See COPYRIGHT.txt for details.
