@@ -1,0 +1,6 @@
+# OS X stuff
+.DS_Store
+._*
+
+# Ruby stuff
+Gemfile.lock
