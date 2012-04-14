@@ -14,4 +14,8 @@ Gem::Specification.new do |gem|
   gem.name          = "page_watcher"
   gem.require_paths = ["lib"]
   gem.version       = PageWatcher::VERSION
+
+  gem.add_development_dependency 'minitest'
+  gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'FakeWeb'
 end
