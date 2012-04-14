@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'fake_web'
+require 'fakeweb'
 
 require 'page_watcher/fetcher/uri'
 
