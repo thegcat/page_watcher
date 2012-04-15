@@ -20,7 +20,7 @@ describe PageWatcher::Filter::XPath do
   end
 
   def example_content_1
-    "You shouldn't find me all the time…"
+    "You shouldn't find me all the time."
   end
 
   def example_content_2
