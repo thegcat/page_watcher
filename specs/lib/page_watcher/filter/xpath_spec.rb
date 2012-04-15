@@ -27,13 +27,13 @@ describe PageWatcher::Filter::XPath do
     "Find me if you can!"
   end
 
-  it "should work when passed an array of strings" do
+  it "should work when passed many strings in the input array" do
     PageWatcher::Filter::XPath.new(example_xpath).call([example_html, example_html]).must_equal [example_content_2, example_content_2]
   end
 
   describe "when the xpath returns one string" do
     it "should return the content we're looking for" do
-      PageWatcher::Filter::XPath.new(example_xpath).call(example_html).must_equal [example_content_2]
+      PageWatcher::Filter::XPath.new(example_xpath).call([example_html]).must_equal [example_content_2]
     end
   end
 
@@ -43,7 +43,7 @@ describe PageWatcher::Filter::XPath do
     end
 
     it "should return the content we're looking for" do
-      PageWatcher::Filter::XPath.new(example_xpath).call(example_html).must_equal [example_content_1, example_content_2]
+      PageWatcher::Filter::XPath.new(example_xpath).call([example_html]).must_equal [example_content_1, example_content_2]
     end
   end
 end
