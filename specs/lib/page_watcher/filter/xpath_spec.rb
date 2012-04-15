@@ -8,8 +8,8 @@ describe PageWatcher::Filter::XPath do
     <<-HTML.gsub(/^ {6}/, '')
       <html>
         <ul>
-          <li id="no">Not the content we want…</li>
-          <li id="yes">#{example_content}</li>
+          <li id="no">#{example_content_1}</li>
+          <li id="yes">#{example_content_2}</li>
         </ul>
       </html>
     HTML
@@ -19,11 +19,31 @@ describe PageWatcher::Filter::XPath do
     "//ul/li[@id='yes']/text()"
   end
 
-  def example_content
+  def example_content_1
+    "You shouldn't find me all the time…"
+  end
+
+  def example_content_2
     "Find me if you can!"
   end
 
-  it "should return the content we're looking for" do
-    PageWatcher::Filter::XPath.new(:xpath => example_xpath).call(example_html).must_equal [example_content]
+  it "should work when passed an array of strings" do
+    PageWatcher::Filter::XPath.new(example_xpath).call([example_html, example_html]).must_equal [example_content_2, example_content_2]
+  end
+
+  describe "when the xpath returns one string" do
+    it "should return the content we're looking for" do
+      PageWatcher::Filter::XPath.new(example_xpath).call(example_html).must_equal [example_content_2]
+    end
+  end
+
+  describe "when the xpath returns multiple string" do
+    def example_xpath
+      "//ul/li/text()"
+    end
+
+    it "should return the content we're looking for" do
+      PageWatcher::Filter::XPath.new(example_xpath).call(example_html).must_equal [example_content_1, example_content_2]
+    end
   end
 end

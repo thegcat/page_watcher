@@ -9,10 +9,10 @@ describe PageWatcher::Fetcher::URI do
   end
 
   before do
-    FakeWeb.register_uri("http://www.example.net/", :string => example_content)
+    FakeWeb.register_uri(:any, "http://www.example.net/", :body => example_content)
   end
 
   it "should return the contents of the file at config[:uri]" do
-    PageWatcher::Fetcher::URI.new({:uri => "http://www.example.net"}).call.must_equal example_content
+    PageWatcher::Fetcher::URI.new("http://www.example.net").call.must_equal example_content
   end
 end

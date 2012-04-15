@@ -3,8 +3,8 @@ require 'open-uri'
 module PageWatcher
   module Fetcher
     class URI
-      def initialize(config)
-        @uri = config[:uri]
+      def initialize(uri)
+        @uri = uri
       end
 
       def call
