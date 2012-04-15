@@ -4,6 +4,18 @@ This program watches a webpage or portion of a webpage and will act on the
 result, for example send an e-mail with a diff or push linked files to another
 place.
 
+== Idea
+
+I actually find myself writing cronjobs that "watch" a webpage and do stuff as a
+result of changes on that page quite often. My most common use-cases are "watch
+this list of linked files and push up-to-date versions to this git repo" and
+"send me an email when that page or portion of a page has changed".
+
+Most of the steps take strings as an input and output strings too, thus I'm
+currently investigating if this can be constructed in a rack-like manner,
+instead that you pass (a list of) strings around rather than rack
+requests/responses.
+
 == Help
 
 You can get help for this plugin in the {GitHub
