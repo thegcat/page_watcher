@@ -14,3 +14,4 @@ project}[https://github.com/thegcat/page_watcher/issues].
 Copyright (c) 2012 - Felix Schäfer
 
 This software is licensed under the MIT license. See COPYRIGHT.txt for details.
+
