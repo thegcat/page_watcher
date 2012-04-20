@@ -8,7 +8,7 @@ module PageWatcher
       end
 
       def call
-        open(@uri).read
+        [open(@uri).read]
       end
     end
   end

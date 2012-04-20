@@ -13,6 +13,6 @@ describe PageWatcher::Fetcher::URI do
   end
 
   it "should return the contents of the file at config[:uri]" do
-    PageWatcher::Fetcher::URI.new("http://www.example.net").call.must_equal example_content
+    PageWatcher::Fetcher::URI.new("http://www.example.net").call.must_equal [example_content]
   end
 end
