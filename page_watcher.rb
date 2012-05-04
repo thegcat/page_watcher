@@ -22,7 +22,7 @@ CONFIG = {
   },
   :ra_ue => {
     :name => "Rechnerarchitektur Übung",
-    :xpath => "//div[@id='page']/table[4]/tbody/tr/td[1 or 3]/a/@href",
+    :xpath => "//div[@id='page']/table[4]/tbody/tr/td/a/@href",
     :url => "http://ls12-www.cs.tu-dortmund.de/daes/de/lehre/lehrveranstaltungen/sommersemester-2012/rechnerarchitektur.html",
     :repo => "u-felix-2012ss-ra",
     :dir => "Uebung",
