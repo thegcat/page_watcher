@@ -73,13 +73,13 @@ CONFIG = {
 
 
 CONFIG.each do |key, options|
-  puts "*** #{options[:name]}"
+  #puts "*** #{options[:name]}"
   netrc = Netrc.read
   links = Nokogiri::HTML(open(options[:url], :http_basic_authentication => netrc[URI(options[:url]).host])).xpath(options[:xpath]).map(&:to_s)
 
   target_dir = File.join(REPOS_DIR, options[:repo], options[:dir])
-  puts %x{cd #{target_dir} && git pull}
+  puts %x{cd #{target_dir} && git pull -q}
   puts %x{echo '#{links.join("\n")}' | wget -q -i - -N -P #{target_dir} -B '#{options[:url]}'}
-  puts %x{cd #{target_dir} && git add . && git commit -m "Automatically added/updated files" && git push}
+  puts %x{cd #{target_dir} && git add . && git diff --quiet --staged || (git commit -m "Automatically added/updated files" && git push)}
   puts
 end
