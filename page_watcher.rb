@@ -13,60 +13,53 @@ BASE_DIR = File.expand_path(File.dirname(__FILE__))
 REPOS_DIR = File.join(BASE_DIR, "gits")
 
 CONFIG = {
-  :ra_vl => {
-    :name => "Rechnerarchitektur Vorlesung",
-    :xpath => "//div[@id='page']/table[2]/tbody/tr/td[last()]/a[text()='PDF']/@href|//div[@id='page']/h2[text()='Materialien']/following-sibling::ul[1]/li/a/@href",
-    :url => "http://ls12-www.cs.tu-dortmund.de/daes/de/lehre/lehrveranstaltungen/sommersemester-2012/rechnerarchitektur.html",
-    :repo => "u-felix-2012ss-ra",
+  :bsb_vl => {
+    :name => "Betriebssystembau Vorlesung",
+    :xpath => "(//div[@class='wrapper']//table)[1]/tbody/tr/td[last()]/a/@href",
+    :url => "http://ess.cs.tu-dortmund.de/Teaching/WS2012/BSB/Downloads/index.html",
+    :repo => "u-felix-2012ws-bsb",
     :dir => "Vorlesung",
   },
-  :ra_ue => {
-    :name => "Rechnerarchitektur Übung",
-    :xpath => "//div[@id='page']/table[4]/tbody/tr/td/a/@href",
-    :url => "http://ls12-www.cs.tu-dortmund.de/daes/de/lehre/lehrveranstaltungen/sommersemester-2012/rechnerarchitektur.html",
-    :repo => "u-felix-2012ss-ra",
+  :bsb_ue => {
+    :name => "Betriebssystembau Übung",
+    :xpath => "(//div[@class='wrapper']//table)[2]/tbody/tr/td[last()]/a/@href",
+    :url => "http://ess.cs.tu-dortmund.de/Teaching/WS2012/BSB/Downloads/index.html",
+    :repo => "u-felix-2012ws-bsb",
     :dir => "Uebung",
   },
-  :sus_vl => {
-    :name => "Software ubiquitärer Systeme Vorlesung",
-    :xpath => "(//div[@id='inhalt']//table)[1]/tbody/tr/td[last()]/a/@href",
-    :url => "http://ess.cs.uni-dortmund.de/DE/Teaching/SS2012/SuS/Downloads/index.html",
-    :repo => "u-felix-2012ss-sus",
+  :swk_ue => {
+    :name => "Softwarekonstruktion Vorlesung",
+    :xpatch => "//div[@class='wrapper']/h3[text()='Vorlesungsfolien:']/following-sibling::ul[not(preceding::h3[text()='Vorlesungstermine inkl. Wiederholungsfolien:'])]/li/a/@href",
+    :url => "http://www-jj.cs.tu-dortmund.de/secse/pages/teaching/ws12-13/swk/index_de.shtml",
+    :repo => "u-felix-2012ws-swk",
     :dir => "Vorlesung",
   },
-  :sus_ue_blaetter => {
-    :name => "Software ubiquitärer Systeme Übungsblätter",
-    :xpath => "(//div[@id='inhalt']//table)[1]/tbody/tr/td[2]/a/@href",
-    :url => "http://ess.cs.uni-dortmund.de/DE/Teaching/SS2012/SuS/Exercises/",
-    :repo => "u-felix-2012ss-sus",
-    :dir => "Uebung",
-  },
-  :sus_ue_folien => {
-    :name => "Software ubiquitärer Systeme Übungsfolien",
-    :xpath => "(//div[@id='inhalt']//table)[2]/tbody/tr/td[last()]/a/@href",
-    :url => "http://ess.cs.uni-dortmund.de/DE/Teaching/SS2012/SuS/Downloads/index.html",
-    :repo => "u-felix-2012ss-sus",
-    :dir => "Uebung",
-  },
-  :egp_vl => {
-    :name => "Elektronische Geschäftsprozesse Vorlesung",
-    :url => "http://ls14-www.cs.uni-dortmund.de/index.php/ElektrGP-SS-2012",
-    :repo => "u-felix-2012ss-egp",
+  :uebau_vl => {
+    :name => "Übersetzerbau Vorlesung",
+    :url => "http://fldit-www.cs.tu-dortmund.de/ueb.html",
+    :repo => "u-felix-2012ws-uebau",
     :dir => "Vorlesung",
-    :xpath => "//h2[span[@id='Vorlesungsfolien']]/following-sibling::ul[1]/li/a/@href",
+    :xpath => "//a[text()='Übersetzerbau']/@href",
   },
-  :egp_ue => {
-    :name => "Elektronische Geschäftsprozesse Übung",
-    :url => "http://ls14-www.cs.uni-dortmund.de/index.php/ElektrGP-SS-2012",
-    :repo => "u-felix-2012ss-egp",
+  :uebau_ue => {
+    :name => "Übersetzerbau Übung",
+    :url => "https://ews.tu-dortmund.de/lecture/uezuebws1213/material/%C3%9Cbungszettel/",
+    :repo => "u-felix-2012ws-uebau",
     :dir => "Uebung",
-    :xpath => "//h3[span[@id='.C3.9Cbungsbl.C3.A4tter']]/following-sibling::ol[1]/li/a/@href",
+    :xpath => "//ul/li[position()>1]/a/@href",
   },
-  :webtech2_vl => {
-    :name => "Webtechnologien 2",
-    :url => "https://ews.tu-dortmund.de/lecture/lsf-110720/material/Folien/",
-    :repo => "u-felix-2012ss-webtech2",
+  :webtech1_vl => {
+    :name => "Webtechnologien 1 Vorlesung",
+    :url => "https://ews.tu-dortmund.de/lecture/lsf-117971/material/Vorlesungsfolien/",
+    :repo => "u-felix-2012ws-webtech1",
     :dir => "Vorlesung",
+    :xpath => "//ul/li[position()>1]/a/@href",
+  },
+  :webtech1_ue => {
+    :name => "Webtechnologien 1 Übung",
+    :url => "https://ews.tu-dortmund.de/lecture/lsf-117971/material/%C3%9Cbungsbl%C3%A4tter/",
+    :repo => "u-felix-2012ws-webtech1",
+    :dir => "Uebung",
     :xpath => "//ul/li[position()>1]/a/@href",
   },
 }
